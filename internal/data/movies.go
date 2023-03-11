@@ -1,9 +1,41 @@
 package data
 
 import (
+	"database/sql"
 	"github.com/Mike-95/movie_api/internal/validator"
 	"time"
 )
+
+type MovieModel struct {
+	DB *sql.DB
+}
+type MockMovieModel struct{}
+
+func (m MockMovieModel) Insert(movie *Movie) error {
+	return nil
+}
+func (m MockMovieModel) Get(id int64) (*Movie, error) {
+	return nil, nil
+}
+func (m MockMovieModel) Update(movie *Movie) error {
+	return nil
+}
+func (m MockMovieModel) Delete(id int64) error {
+	return nil
+}
+
+func (m MovieModel) Insert(movie *Movie) error {
+	return nil
+}
+func (m MovieModel) Get(id int64) (*Movie, error) {
+	return nil, nil
+}
+func (m MovieModel) Update(movie *Movie) error {
+	return nil
+}
+func (m MovieModel) Delete(id int64) error {
+	return nil
+}
 
 type Movie struct {
 	ID        int64     `json:"id"`
